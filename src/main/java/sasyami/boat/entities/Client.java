@@ -23,4 +23,6 @@ public class Client {
     private String login;
     @Column(name="passwd")
     private String password;
+
+
 }
