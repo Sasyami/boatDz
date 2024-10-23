@@ -21,7 +21,7 @@ public class PriceList {
     private String goods;
     private Double load_cost;
     private Double unload_cost;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Port.class)
+    @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = Port.class)
     private Port port;
 
 }

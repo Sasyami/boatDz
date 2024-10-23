@@ -1,5 +1,6 @@
 package sasyami.boat.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.stereotype.Component;
@@ -18,10 +19,16 @@ public class Crew {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="crew_id")
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Flight.class)
+    @JsonIgnore
+    @JoinColumn(name = "flight_id")
+    @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = Flight.class)
     private Flight flight;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Captain.class)
+    @JsonIgnore
+    @JoinColumn(name = "captain_id")
+    @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = Captain.class)
     private Captain captain;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Ship.class)
+    @JsonIgnore
+    @JoinColumn(name = "ship_id")
+    @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = Ship.class)
     private Ship ship;
 }

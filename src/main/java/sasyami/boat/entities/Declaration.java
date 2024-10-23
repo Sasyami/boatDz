@@ -20,13 +20,13 @@ public class Declaration {
     private Long id;
     private String status;
     private Double declaration_cost;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Port.class)
+    @ManyToOne( cascade = CascadeType.PERSIST, targetEntity = Port.class)
     private Port dep_port;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Port.class)
+    @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = Port.class)
     private Port arr_port;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Flight.class)
+    @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = Flight.class)
     private Flight flight;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Client.class)
+    @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = Client.class)
     private Client client;
 
 

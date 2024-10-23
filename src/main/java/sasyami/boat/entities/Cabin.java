@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 @Builder
 @Getter
 @Setter
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -18,11 +17,16 @@ import org.springframework.stereotype.Component;
 public class Cabin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="cabin")
+    @Column(name="cabin_id")
     private Long id;
-    private Short cabin_class;
+    @Column(name = "cabin_class")
+    private Short cabinClass;
     private Short places;
     private Integer price;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Ship.class)
+    @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = Ship.class)
+    @JoinColumn(name = "ship_id", referencedColumnName = "ship_id")
     private Ship ship;
+    @Column(name = "cabin_count")
+    private Integer count;
+
 }

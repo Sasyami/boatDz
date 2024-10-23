@@ -25,12 +25,13 @@ public class Stop {
     private Date arr_date;
     private Date dep_date;
     private Integer passengers;
+
     private Boolean visited;
     private Integer stnumber;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Flight.class)
+    @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = Flight.class)
+    @JoinColumn(name = "flight_id",referencedColumnName = "flight_id")
     private Flight flight;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Port.class)
+    @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = Port.class)
+    @JoinColumn(name = "port_id", referencedColumnName = "port_id")
     private Port port;
-
-
 }

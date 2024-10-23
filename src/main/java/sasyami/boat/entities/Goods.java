@@ -19,9 +19,9 @@ public class Goods {
     @Column(name="goods_id")
     private Long id;
     private Long tonns;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = Declaration.class)
+    @ManyToOne(cascade = CascadeType.PERSIST, targetEntity = Declaration.class)
     private Declaration declaration;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, targetEntity = GoodsInfo.class)
+    @ManyToOne( cascade = CascadeType.PERSIST, targetEntity = GoodsInfo.class)
     private GoodsInfo goodsInfo;
 
 

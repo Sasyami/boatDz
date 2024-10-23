@@ -13,6 +13,7 @@ public interface ShipRepository extends JpaRepository<Ship,Long> {
     public List<Ship> findAllByConstrYear(Integer constr_year);
     public List<Ship> findAllByShipClass(Character shipClass);
     public List<Ship> findAllByShipType(String shipType);
+    public List<Ship> findAllByShipName(String name);
 
 
 }
