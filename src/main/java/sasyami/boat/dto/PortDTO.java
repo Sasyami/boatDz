@@ -13,7 +13,7 @@ public class PortDTO implements Serializable {
     private static final long serialVersionUID =7584932;
     public String country;
     public String town;
-    public String port_name;
+    public String portName;
     public Point coordinates;
 
 }

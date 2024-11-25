@@ -29,7 +29,7 @@ public class FlightController {
                         .dep_date(s.getDep_date())
                         .port(PortDTO
                                 .builder()
-                                .port_name(s
+                                .portName(s
                                         .getPort()
                                         .getPortName())
                                 .coordinates(s
@@ -62,7 +62,7 @@ public class FlightController {
                                 .dep_date(s.getDep_date())
                                 .port(PortDTO
                                         .builder()
-                                        .port_name(s
+                                        .portName(s
                                                 .getPort()
                                                 .getPortName())
                                         .coordinates(s
@@ -93,6 +93,10 @@ public class FlightController {
     @PutMapping("/update/flight")
     public ResponseEntity<Flight> updateFlight(@RequestBody FlightAddUpdateRequest request){
         return ResponseEntity.of(service.updateFlight(request));
+    }
+    @DeleteMapping("/delete/flight")
+    public ResponseEntity<Flight> deleteFlight(@RequestBody Long id){
+        return service.deleteFlight(id);
     }
 
 

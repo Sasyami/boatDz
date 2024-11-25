@@ -1,6 +1,8 @@
 package sasyami.boat.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import sasyami.boat.dto.FlightAddUpdateRequest;
 import sasyami.boat.dto.StopDTO;
@@ -52,6 +54,14 @@ public class FlightService {
         }catch(RuntimeException e){
             return Optional.empty();
 
+        }
+    }
+    public ResponseEntity<Flight> deleteFlight(Long id){
+        try{
+            repository.delete(repository.findById(id).orElseThrow());
+            return ResponseEntity.status(HttpStatus.OK).build();
+        }catch (RuntimeException e){
+            return ResponseEntity.badRequest().build();
         }
     }
 }
